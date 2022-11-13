@@ -5,7 +5,7 @@ import folium as fl
 import geopandas as gpd
 from folium.plugins import BeautifyIcon
 import plotly.express as px
-import io
+
 BaseColor=['#80BBAD', '#435254', '#17E88F', '#DBD99A', '#D2785A', '#885073', '#A388BF', '#1F3765', '#3E7CA6', '#CAD1D3']
 PU_Start='<div style="font-size: 12pt; color : #435254; font-weight: bold;"><span style="white-space: nowrap;">'
 PU_End='</span></div>'
@@ -129,10 +129,6 @@ with tab3:
     v=st.radio('Select Show Value',['Value1','Value2'])
     if v=='Value1':
         st.plotly_chart(fig,use_container_width=True)
-        buffer=io.StringIO()
-        fig.write_html(buffer, include_plotlyjs='cdn')
-        html_bytes = buffer.getvalue().encode()
-        st.download_button('📊 Chart Download', html_bytes,file_name='Chart.html',mime='text/html')
     if v=='Value2':
         st.plotly_chart(fig2,use_container_width=True)
 with tab4:
